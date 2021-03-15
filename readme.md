@@ -22,7 +22,7 @@ Additional details to login and initialize Jenkins can be found <a href=https://
 
 ## Install Artifactory 
 
-If you don't have Artifactory installed already, you can use the OSS version or sign up for a 30 day trial at JFrog
+If you don't have Artifactory installed already, you can sign up for a 30 day trial at JFrog
 
 ```
 docker volume create artifactory-data
