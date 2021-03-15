@@ -9,5 +9,9 @@ RUN add-apt-repository \
        "deb [arch=amd64] https://download.docker.com/linux/debian \
        $(lsb_release -cs) stable"
 RUN apt-get update && apt-get install -y docker-ce-cli
+USER root
+# To allow us to access /var/run/docker.sock on the Mac
+USER root
+RUN gpasswd -a jenkins root
 USER jenkins
 RUN jenkins-plugin-cli --plugins blueocean:1.24.4
