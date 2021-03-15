@@ -59,15 +59,19 @@ Note: List of required Jenkins plugins to build this app
 2. Add your Artifactory credentials as the type Username with password, with the ID artifactory-credentials (click on Credentials -> System -> Global credentials -> Add Credentials)
 
 3. Configure the artifactory server in Jenkins 
+
 ![ScreenShot](https://raw.githubusercontent.com/tarunaz/spring-petclinic/main/images/artifactory_server.png)
 
-4. To build your new Pipeline job, press Build Now. After a few minutes if the build is succesful, and something like this on the page of your new Jenkins job
+4. To build your new Pipeline job, press Build Now. After a few minutes if the build is succesful, you should see something like this on the page of your new Jenkins job
+
 ![ScreenShot](https://raw.githubusercontent.com/tarunaz/spring-petclinic/main/images/jenkins.png)
 
-5. You should see the image in your Artifactory repository
+5. You should now see the image appear in your Artifactory repository
+
 ![ScreenShot](https://raw.githubusercontent.com/tarunaz/spring-petclinic/main/images/artifactory.png)
 
-6. And the build info and matadata should now exist in Artifactory
+6. As well as the build info and matadata info that links your image back to jenkins
+
 ![ScreenShot](https://raw.githubusercontent.com/tarunaz/spring-petclinic/main/images/builds.png)
 
 
