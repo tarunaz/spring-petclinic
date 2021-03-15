@@ -22,17 +22,29 @@ Additional details to login and initialize Jenkins can be found <a href=https://
 
 ## Install Artifactory 
 
+If you don't have Artifactory installed already, you can use the OSS version or sign up for a 30 day trial at JFrog
+
 ```
 docker volume create artifactory-data
 
 docker run -d --name artifactory --rm -p 8082:8082 -p 8081:8081 -v artifactory-data:/var/opt/jfrog/artifactory releases-docker.jfrog.io/jfrog/artifactory-pro:latest
 ```
 
-Artifactory can be accessed at http://localhost:8081
+Artifactory can now be accessed at http://localhost:8081
 
 
 ## Steps to create Jenkins Pipeline to build and push docker image to Artifactory:
-Note: List of required Jenkins plugins
+
+In this exmaple, we have resolved all dependencies from JCenter. This is achieved by adding the following to your pom.xml.
+
+```
+<repository>
+  <id>jcenter</id>
+  <name>jcenter</name>
+  <url>https://jcenter.bintray.com</url>
+</repository>
+```
+Note: List of required Jenkins plugins to build this app
 
 * Artifactory Plugin
 * Docker Pipeline Plugin
@@ -40,11 +52,16 @@ Note: List of required Jenkins plugins
 * Pipeline Github Plugin
 * Pipeline Plugin
 
+## Steps
+
 1. From the Jenkins dashboard, create a New Item of type Pipeline. Configure it and pick the Pipeline script from SCM option passing it the Jenkinsfile in this git repo.
 
 2. Add your Artifactory credentials as the type Username with password, with the ID artifactory-credentials (click on Credentials -> System -> Global credentials -> Add Credentials)
 
-3. To build your new Pipeline job, press Build Now. After a few minutes you should see an image appear in your Artifactory repository, and something like this on the page of your new Jenkins job
+3. To build your new Pipeline job, press Build Now. After a few minutes if the build is succesful, and something like this on the page of your new Jenkins job
+
+
+4. You should all see the image in your Artifactory repository as well the build info
 
 
 
