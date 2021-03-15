@@ -1,12 +1,5 @@
 pipeline {
     
-    /*agent {
-        docker {
-            image 'maven:3-alpine' 
-            args '-v /root/.m2:/root/.m2' 
-        }
-    }*/
-    
     agent any
     
     stages {
@@ -16,7 +9,7 @@ pipeline {
             }
         }
 
-        /*stage('Test') {
+        stage('Test') {
             steps {
                 sh 'mvn test -Dcheckstyle.skip=true'
             }
@@ -25,12 +18,10 @@ pipeline {
                     junit 'target/surefire-reports/*.xml'
                 }
             }
-        }*/
+        }
         
 
         stage('Build image') { // build and tag docker image
-       
-
             steps {
                 echo 'Starting to build docker image'
 
